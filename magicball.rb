@@ -1,10 +1,20 @@
+# encoding: utf-8
+if Gem.win_platform?
+	Encoding.default_external = Encoding.find(Encoding.locale_charmap)
+	Encoding.default_internal = __ENCODING__
+
+	[STDIN, STDOUT].each do |io|
+		io.set_encoding(Encoding.default_external, Encoding.default_internal)
+	end
+end
+
 # Игра "Волшебный шар"
 # Массив вариантов приветствия
 greetings = [
 	"Привет, дорогой друг. Отвечаю на твой вопрос...",
-	"Здравствуй, смертный. Сегодня для тебя такой ответ:"
+	"Здравствуй, смертный. Сегодня для тебя такой ответ:",
   "Кто вопрошает - тот получит ответ:"
-]
+  ]
 
 # Массив вариантов ответа
 answers = [
@@ -34,7 +44,7 @@ answers = [
  	"По моим данным — «нет»",
  	"Перспективы не очень хорошие",
  	"Весьма сомнительно"
-]
+  ]
 
 puts
 # Случайный выбор вариантов приветствия
