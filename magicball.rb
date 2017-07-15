@@ -1,4 +1,5 @@
 # encoding: utf-8
+#
 if Gem.win_platform?
   Encoding.default_external = Encoding.find(Encoding.locale_charmap)
   Encoding.default_internal = __ENCODING__
